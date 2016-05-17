@@ -2,17 +2,18 @@ body {
    margin: 0;
    font-family: sans-serif;
    font-size: larger;
-    background-color: darkgrey;
+    background-color: navy;
+    color: white;
 }
 a, a:active, a:visited {
-  /*color: #1FA67A;*/
+  color: lightblue;
   font-weight: 600;
   text-decoration: underline;
 }
 hr {
     border: none;
     height: 1px;
-    background-color: #ddd;
+    background-color: lightblue
 }
 h1, h2 {
     margin: 1em;
@@ -24,3 +25,5 @@ li {
 img {
     border: 1px solid grey;
 }
+small { font-size: 8pt; }
+footer { text-align: center; }
