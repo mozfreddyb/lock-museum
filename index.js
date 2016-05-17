@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 "use strict";
-const static = require("node-static");
+const nstatic = require("node-static");
 const exec = require('child_process').exec;
 
 const TWOHOURS = 60*60*2;
 const WEEK = 60*60*24*7;
 
 
-var file = new static.Server('html/', {
+var file = new nstatic.Server('html/', {
   headers: {
     "Content-Security-Policy": "default-src 'self'; img-src *;",
     "X-Content-Type-Options": "nosniff",
@@ -31,6 +31,7 @@ function schedule() {
       if (error) {
         console.error(`exec error: ${error}`);
         return;
+      }
   });
   }, TWO_HOURS);
 
