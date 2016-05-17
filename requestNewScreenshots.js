@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 //
-// Run this periodically to get a recent list of screenshots
-//  into shots.json
+// Run this periodically to kick off creating new screenshot
 //
 "use strict";
 
@@ -22,9 +21,7 @@ let screenshotTests = {"1276817": 'EV Certificate',
 "1276819": 'DV Certificate',
   "1276821": 'Passive Mixed Content',
   "1276823": 'Active Mixed'
-}
-
-var finalList = []; // what we will emit, ultimately
+} // xbrowsertesting calls them screenshot_test_id -^
 
 for (let id in screenshotTests) {
   let name = screenshotTests[id];
@@ -41,28 +38,9 @@ for (let id in screenshotTests) {
         let vid = v.version_id; // use this, it should be the latest
         //console.log("found version", vid, "for", id);
         let shotsData = `${credentialedURL}/${id}/${vid}?format=json`;
-        fetch(shotsData).then((res) => res.json()).then(hereTheImages);
-        break; // one is enough
+        // tell xbrowsertesting to repeat this screenshot test
+        fetch(shotsData, { method: 'POST'});
+        break; // once is enough
       }
   });
 }
-
-function hereTheImages(results) {
-  debugger;
-  var res = results.versions[0];
-  for (let shot of res.results) {
-    finalList.push({
-      testName: screenshotTests[results.screenshot_test_id],
-      imageURL: shot.images.windowed,
-      osName: shot.os.name,
-      browserName: shot.browser.name
-    });
-  }
-  fs.unlinkSync(OUTFILE)
-  fs.writeFileSync(OUTFILE, JSON.stringify(finalList));
-}
-
-/*function showImage(o) {
-  console.log(o.testName, o.browserName, "on", o.osName);
-  console.log(o.imageURL, "\n");
-}*/
