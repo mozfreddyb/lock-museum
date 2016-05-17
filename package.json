@@ -1,0 +1,19 @@
+{
+  "name": "lock-museum",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "node-fetch": "^1.5.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mozfreddyb/lock-museum.git"
+  },
+  "author": "Frederik Braun",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/mozfreddyb/lock-museum/issues"
+  },
+  "homepage": "https://github.com/mozfreddyb/lock-museum#readme"
+}

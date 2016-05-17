@@ -1,0 +1,26 @@
+body {
+   margin: 0;
+   font-family: sans-serif;
+   font-size: larger;
+    background-color: darkgrey;
+}
+a, a:active, a:visited {
+  /*color: #1FA67A;*/
+  font-weight: 600;
+  text-decoration: underline;
+}
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+}
+h1, h2 {
+    margin: 1em;
+}
+li {
+    height: 300px;
+    overflow: hidden;
+}
+img {
+    border: 1px solid grey;
+}
