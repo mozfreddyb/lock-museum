@@ -4,15 +4,16 @@ const nstatic = require("node-static");
 const exec = require('child_process').exec;
 
 const TWOHOURS = 1000*60*60*2;
-const WEEK = 1000*60*60*24*7;
-
+const WEEK_SEC = 60*60*24*7;
+const WEEK_MS = 1000*WEEK_SEC
 
 var file = new nstatic.Server('html/', {
   headers: {
     "Content-Security-Policy": "default-src 'self'; img-src *;",
     "X-Content-Type-Options": "nosniff",
     "X-XSS-Protection": " 1; mode=block",
-    "Strict-Transport-Security": `max-age=${WEEK}; includeSubDomains;`
+    "Strict-Transport-Security": `max-age=${WEEK_SEC}; includeSubDomains;`,
+    "X-Frame-Options": "DENY"
 
   }
 });
@@ -36,7 +37,7 @@ function schedule() {
   }, TWO_HOURS);
 
   // running again next week
-  setTimeout(schedule, WEEK)
+  setTimeout(schedule, WEEK_MS)
 }
 
 // host stuff in html/
