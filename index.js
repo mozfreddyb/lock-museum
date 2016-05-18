@@ -3,8 +3,8 @@
 const nstatic = require("node-static");
 const exec = require('child_process').exec;
 
-const TWOHOURS = 60*60*2;
-const WEEK = 60*60*24*7;
+const TWOHOURS = 1000*60*60*2;
+const WEEK = 1000*60*60*24*7;
 
 
 var file = new nstatic.Server('html/', {
