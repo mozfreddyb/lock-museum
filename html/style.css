@@ -1,29 +1,85 @@
 body {
-   margin: 0;
-   font-family: sans-serif;
-   font-size: larger;
+    font-family: sans-serif;
+    font-size: larger;
     background-color: navy;
     color: white;
+    margin: 1em;
 }
 a, a:active, a:visited {
-  color: lightblue;
-  font-weight: 600;
-  text-decoration: underline;
+    color: lightblue;
+    font-weight: 600;
+    text-decoration: underline;
 }
 hr {
     border: none;
     height: 1px;
     background-color: lightblue
 }
-h1, h2 {
-    margin: 1em;
-}
 li {
-    height: 300px;
+    max-height: 300px;
+    max-width: 25%;
     overflow: hidden;
+    margin: 1%;
+    flex-grow: 1;
 }
-img {
-    border: 1px solid grey;
+
+ul {
+    padding: 10px;
+    margin: 0;
+    display: -moz-box;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    min-height: 400px;
 }
 small { font-size: 8pt; }
 footer { text-align: center; }
+
+/** filter/selector stuff */
+.tfiltered { display: none; }
+.bfiltered { display: none; }
+.icon.chrome {
+    background-image: url(https://maxcdn.icons8.com/Color/PNG/96/Logos/chrome-96.png);
+    background-size: 3rem;
+}
+
+.icon.opera {
+    background-image: url(https://maxcdn.icons8.com/Color/PNG/96/Logos/opera-96.png);
+    background-size: 3rem;
+}
+
+.icon.safari {
+    background-image: url(https://maxcdn.icons8.com/Color/PNG/96/Logos/safari-96.png);
+    background-size: 3rem;
+}
+
+.icon.firefox {
+    background-image: url(https://maxcdn.icons8.com/Color/PNG/96/Logos/firefox-96.png);
+    background-size: 3rem;
+}
+
+.icon.edge {
+    background-image: url(https://maxcdn.icons8.com/Color/PNG/96/Logos/internet_explorer-96.png);
+    background-size: 3rem;
+}
+
+#browser-filter input, #test-filter input {
+    display: none;
+}
+
+#browser-filter input:active +.bf-label, #test-filter input:active +.tf-label {opacity: .9;}
+#browser-filter input:checked +.bf-label, #test-filter input:checked +.tf-label {
+    filter: none;
+}
+.bf-label, .tf-label {
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:100px;height:70px;
+    transition: all 100ms ease-in;
+    filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.bf-label:hover, .tf-label:hover {
+    filter: brightness(1.2) grayscale(.5) opacity(.9);
+}

@@ -9,9 +9,50 @@
   <body>
     <header>
       <h1>Browser Lock Museum</h1>
-      <h2>Showing the latest and greatest in lock technologies</h2>
     </header>
+    <nav>
+      <form>
+        <div id="browser-filter">
+          <input id="filternone" name="browser" value="none" checked="true" type="radio">
+          <label data-browser-name="none" class="bf-label icon none"
+                 for="filternone" title="Show all">Show all browsers</label>
+          <input id="filterchrome" name="browser" value="chrome" type="radio">
+          <label data-browser-name="chrome" class="bf-label icon chrome" for="filterchrome" title="Show only Chrome"></label>
+          <input id="filterfirefox" name="browser" value="firefox" type="radio">
+          <label data-browser-name="firefox" class="bf-label icon firefox" for="filterfirefox" title="Show only Firefox"></label>
+          <input id="filteredge" name="browser" value="edge" type="radio">
+          <label data-browser-name="edge" class="bf-label icon edge" for="filteredge" title="Show only Edge"></label>
+          <input id="filteropera" name="browser" value="opera" type="radio">
+          <label data-browser-name="opera" class="bf-label icon opera" for="filteropera" title="Show only Opera"></label>
+          <input id="filtersafari" name="browser" value="safari" type="radio">
+          <label data-browser-name="safari" class="bf-label icon safari" for="filtersafari" title="Show only Safari"></label>
+        </div>
+        <div id="test-filter">
+          <input id="tfilternone" name="testcase" value="none" checked="true" type="radio">
+          <label data-test-name="none" class="tf-label icon tnone"
+                 for="tfilternone" title="Show all">Show all tests</label>
 
+          <input id="filterev" name="testcase" value="ev" type="radio">
+          <label data-test-name="ev" class="tf-label icon ev" for="filterev"
+                 title="Show only EV">EV Certificate</label>
+
+          <input id="filterdv" name="testcase" value="dv" type="radio">
+          <label data-test-name="dv" class="tf-label icon dv" for="filterdv"
+                 title="Show only DV">DV Certificate</label>
+
+          <input id="filterma" name="testcase" value="ma" type="radio">
+          <label data-test-name="ma" class="tf-label icon ma" for="filterma"
+                 title="Show only Active Mixed Content">
+            Active Mixed Content</label>
+
+          <input id="filtermp" name="testcase" value="mp" type="radio">
+          <label data-test-name="mp" class="tf-label icon mp" for="filtermp"
+                 title="Show only Passive Mixed Content">
+            Passive Mixed Content</label>
+        </div>
+      </form>
+      <hr>
+    </nav>
     <div id="main"></div>
 
 
@@ -19,6 +60,8 @@
       <hr>
       <small>
       Made by <a href="https://frederik-braun.com">Frederik Braun</a> &middot;
-      Screenshots taken with an open source license from <a href="http://crossbrowsertesting.com/">Cross Browser Testing License</a>. Thanks!</small></footer>
+      Screenshots taken with an open source license from <a href="http://crossbrowsertesting.com/">Cross Browser Testing License</a> &middot;
+      Icons from <a href="https://icons8.com">Icons8</a> &middot;
+      Thanks!</small></footer>
   </body>
 </html>
