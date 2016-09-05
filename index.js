@@ -3,7 +3,7 @@
 const nstatic = require("node-static");
 const exec = require('child_process').exec;
 
-const TWOHOURS = 1000*60*60*2;
+const TWO_HOURS = 1000*60*60*2;
 const WEEK_SEC = 60*60*24*7;
 const WEEK_MS = 1000*WEEK_SEC
 
