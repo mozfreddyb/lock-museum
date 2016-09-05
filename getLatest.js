@@ -34,7 +34,7 @@ for (let id in screenshotTests) {
     .then(function(versionData) {
       let versionList = versionData.versions;
       for (let v of versionList) {
-        if (v.result_count.total != v.result_count.successful) {
+        if ((v.result_count.total - v.result_count.successful) < 4) {
           //console.log("skipping v:", v, v.result_count.total, v.result_count.successful);
           continue; // skip unfinished
         }
