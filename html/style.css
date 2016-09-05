@@ -17,7 +17,7 @@ hr {
 }
 li {
     max-height: 300px;
-    max-width: 25%;
+    min-width: 1024;
     overflow: hidden;
     margin: 1%;
     flex-grow: 1;
