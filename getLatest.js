@@ -30,18 +30,24 @@ for (let id in screenshotTests) {
   let name = screenshotTests[id];
   let versionsUrl = `${credentialedURL}/${id}/versions?format=json`;
   fetch(versionsUrl)
-    .then((res) => res.json())
+    .then(
+      (res) => res.json(),
+      (err) => { console.log("Couldn't fetch versionsURL:", err); throw err; }
+    )
     .then(function(versionData) {
       let versionList = versionData.versions;
       for (let v of versionList) {
-        if ((v.result_count.total - v.result_count.successful) < 4) {
+        if ((v.result_count.successful - v.result_count.total) < -4) {
           //console.log("skipping v:", v, v.result_count.total, v.result_count.successful);
           continue; // skip unfinished
         }
         let vid = v.version_id; // use this, it should be the latest
         //console.log("found version", vid, "for", id);
         let shotsData = `${credentialedURL}/${id}/${vid}?format=json`;
-        fetch(shotsData).then((res) => res.json()).then(hereTheImages);
+        fetch(shotsData).then(
+          (res) => res.json(),
+          (err) => { console.log("Couldn't fetch shotsData: ", err); throw err; }
+        ).then(hereTheImages);
         break; // one is enough
       }
   });
@@ -58,7 +64,7 @@ function hereTheImages(results) {
       browserName: shot.browser.name
     });
   }
-  fs.unlinkSync(OUTFILE)
+  fs.unlinkSync(OUTFILE);
   fs.writeFileSync(OUTFILE, JSON.stringify(finalList));
 }
 
