@@ -12,13 +12,14 @@ var fs = require("fs");
 const OUTFILE = "html/shots.json"
 var credentialedURL = process.env.CREDENTIALS;
 if (credentialedURL.indexOf("https://") === -1) {
-  console.error("Couldnt find credentials!")
+  console.error("Couldnt find credentials!");
   process.exit(1);
 }
 // format = 'https://USERNAME:TOKEN@crossbrowsertesting.com/api/v3/screenshots'
 
-let screenshotTests = {"1276817": 'EV Certificate',
-"1276819": 'DV Certificate',
+let screenshotTests = {
+  "1276817": 'EV Certificate',
+  "1276819": 'DV Certificate',
   "1276821": 'Passive Mixed Content',
   "1276823": 'Active Mixed'
 } // xbrowsertesting calls them screenshot_test_id -^
