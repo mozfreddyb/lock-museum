@@ -13,7 +13,7 @@ var fs = require("fs");
 const OUTFILE = "html/shots.json"
 var credentialedURL = process.env.CREDENTIALS;
 if (credentialedURL.indexOf("https://") === -1) {
-  console.error("Couldnt find credentials!")
+  console.error("Couldnt find credentials!");
   process.exit(1);
 }
 // format = 'https://USERNAME:TOKEN@crossbrowsertesting.com/api/v3/screenshots'
