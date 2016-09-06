@@ -19,7 +19,7 @@ var file = new nstatic.Server('html/', {
 });
 
 // schedule re-generating screenshots
-function schedule() {
+/*function schedule() {
   // those exec calls are async
   //  but we simply don't care about the results because yolo
   console.log(new Date(), "Requesting new screenshots.");
@@ -41,6 +41,7 @@ function schedule() {
 }
 schedule();
 
+*/
 // host stuff in html/
 const PORT = process.env.PORT || 4000;
 require ('http').createServer(function (req, res) {
