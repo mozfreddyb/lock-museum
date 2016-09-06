@@ -1,3 +1,3 @@
 web: node index.js
-worker: node requestNewScreenshots.js
-worker: node getLatest.js
+workerRequestScreenshots: node requestNewScreenshots.js
+workerGetScreenShots: node getLatest.js
