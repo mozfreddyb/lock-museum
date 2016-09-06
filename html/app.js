@@ -58,7 +58,6 @@ addEventListener("DOMContentLoaded", function () {
       "use strict";
       var l = e.target;
       var selectedBrowser = l.dataset.browserName;
-      console.log("filtering for", selectedBrowser, "only");
       for (let img of document.getElementsByClassName("screenshot")) {
         var el = img.parentNode.parentNode;
         if (selectedBrowser !== "none") {
@@ -82,7 +81,6 @@ addEventListener("DOMContentLoaded", function () {
       "use strict";
       var l = e.target;
       var selectedTest = l.dataset.testName;
-      console.log("filtering for", selectedTest, "only");
       for (let img of document.getElementsByClassName("screenshot")) {
         var el = img.parentNode.parentNode;
         if (selectedTest !== "none") {
