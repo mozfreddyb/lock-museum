@@ -66,6 +66,7 @@ function hereTheImages(results) {
   }
   fs.unlinkSync(OUTFILE);
   fs.writeFileSync(OUTFILE, JSON.stringify(finalList));
+  console.log("Got screenshots and saved to file", new Date())
 }
 
 /*function showImage(o) {

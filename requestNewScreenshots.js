@@ -40,6 +40,7 @@ for (let id in screenshotTests) {
         //console.log("found version", vid, "for", id);
         let shotsData = `${credentialedURL}/${id}/${vid}?format=json`;
         // tell xbrowsertesting to repeat this screenshot test
+        console.log("Requesting new screenshot for test", id, vid);
         fetch(shotsData, { method: 'POST'});
         break; // once is enough
       }

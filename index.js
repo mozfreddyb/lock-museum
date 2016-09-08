@@ -39,7 +39,7 @@ var file = new nstatic.Server('html/', {
   // running again next week
   setTimeout(schedule, WEEK_MS)
 }
-schedule();
+//schedule();
 
 */
 // host stuff in html/
