@@ -31,18 +31,24 @@ for (let id in screenshotTests) {
     .then((res) => res.json())
     .then(function(versionData) {
       let versionList = versionData.versions;
+      let latest = 0;
+      let timestamp;
       for (let v of versionList) {
         if (v.result_count.total != v.result_count.successful) {
           //console.log("skipping v:", v, v.result_count.total, v.result_count.successful);
           continue; // skip unfinished
         }
-        let vid = v.version_id; // use this, it should be the latest
-        //console.log("found version", vid, "for", id);
-        let shotsData = `${credentialedURL}/${id}/${vid}?format=json`;
-        // tell xbrowsertesting to repeat this screenshot test
-        console.log("Requesting new screenshot for test", id, vid);
-        fetch(shotsData, { method: 'POST'});
-        break; // once is enough
+        timestamp = (new Date(v.start_date)).getTime(); //
+        if (timestamp < latest) {
+          continue
+        }
+        latest = timestamp;
+        var vid = v.version_id; // use this, it should be the latest
+        console.log("found version", vid, "for", id);
       }
+      console.log("Test", id, "using version", vid, "from", timestamp);
+      // tell xbrowsertesting to repeat this screenshot test
+      let shotsData = `${credentialedURL}/${id}/${vid}?format=json`;
+      fetch(shotsData, { method: 'POST'});
   });
 }

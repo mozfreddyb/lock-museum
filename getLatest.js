@@ -36,20 +36,26 @@ for (let id in screenshotTests) {
     )
     .then(function(versionData) {
       let versionList = versionData.versions;
+      let latest = 0;
+      var timestamp;
       for (let v of versionList) {
         if ((v.result_count.successful - v.result_count.total) < -4) {
           //console.log("skipping v:", v, v.result_count.total, v.result_count.successful);
           continue; // skip unfinished
         }
-        let vid = v.version_id; // use this, it should be the latest
-        //console.log("found version", vid, "for", id);
-        let shotsData = `${credentialedURL}/${id}/${vid}?format=json`;
-        fetch(shotsData).then(
-          (res) => res.json(),
-          (err) => { console.log("Couldn't fetch shotsData: ", err); throw err; }
-        ).then(hereTheImages);
-        break; // one is enough
+        timestamp = (new Date(v.start_date)).getTime(); //
+        if (timestamp < latest) {
+          continue
+        }
+        latest = timestamp;
+        var vid = v.version_id; // use this, it should be the latest
       }
+      console.log("Test", id, "using version", vid, "from", timestamp);
+      let shotsData = `${credentialedURL}/${id}/${vid}?format=json`;
+      fetch(shotsData).then(
+        (res) => res.json(),
+        (err) => { console.log("Couldn't fetch shotsData: ", err); throw err; }
+      ).then(hereTheImages);
   });
 }
 
