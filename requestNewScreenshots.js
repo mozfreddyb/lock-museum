@@ -34,9 +34,10 @@ for (let id in screenshotTests) {
       let latest = 0;
       let timestamp;
       for (let v of versionList) {
-        if (v.result_count.total != v.result_count.successful) {
-          //console.log("skipping v:", v, v.result_count.total, v.result_count.successful);
-          continue; // skip unfinished
+        if ((v.result_count.successful - v.result_count.total) < -4) {
+            //console.log("skipping v:", v, v.result_count.total, v.result_count.successful);
+            continue; // skip unfinished
+          }
         }
         timestamp = (new Date(v.start_date)).getTime(); //
         if (timestamp < latest) {
