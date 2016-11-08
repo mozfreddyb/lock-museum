@@ -19,16 +19,16 @@ var file = new nstatic.Server('html/', {
 });
 
 // schedule re-generating screenshots
-/*function schedule() {
+function schedule() {
   // those exec calls are async
   //  but we simply don't care about the results because yolo
   console.log(new Date(), "Requesting new screenshots.");
-  exec('nodejs ./requestNewScreenshots.js');
+  exec('node ./requestNewScreenshots.js');
 
   // we should ask for the URLs to the new screenshots... in two hours.
   setTimeout(function() {
     console.log(new Date(), "Getting latest screenshot URLs.");
-    exec('nodejs ./getLatest.js', (error, stdout, stderr) => {
+    exec('node ./getLatest.js', (error, stdout, stderr) => {
       if (error) {
         console.error(`exec error: ${error}`);
         return;
@@ -39,9 +39,8 @@ var file = new nstatic.Server('html/', {
   // running again next week
   setTimeout(schedule, WEEK_MS)
 }
-//schedule();
+schedule();
 
-*/
 // host stuff in html/
 const PORT = process.env.PORT || 4000;
 require ('http').createServer(function (req, res) {
