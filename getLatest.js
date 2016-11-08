@@ -18,10 +18,12 @@ if (credentialedURL.indexOf("https://") === -1) {
 }
 // format = 'https://USERNAME:TOKEN@crossbrowsertesting.com/api/v3/screenshots'
 
-let screenshotTests = {"1276817": 'EV Certificate',
-"1276819": 'DV Certificate',
+let screenshotTests = {
+  "1276817": 'EV Certificate',
+  "1276819": 'DV Certificate',
   "1276821": 'Passive Mixed Content',
-  "1276823": 'Active Mixed'
+  "1276823": 'Active Mixed',
+  "1958994": 'Expired Certificate'
 }
 
 var finalList = []; // what we will emit, ultimately

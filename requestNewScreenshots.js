@@ -21,7 +21,8 @@ let screenshotTests = {
   "1276817": 'EV Certificate',
   "1276819": 'DV Certificate',
   "1276821": 'Passive Mixed Content',
-  "1276823": 'Active Mixed'
+  "1276823": 'Active Mixed',
+  "1958994": 'Expired'
 } // xbrowsertesting calls them screenshot_test_id -^
 
 for (let id in screenshotTests) {
@@ -35,7 +36,6 @@ for (let id in screenshotTests) {
       let timestamp;
       for (let v of versionList) {
         if ((v.result_count.successful - v.result_count.total) < -4) {
-            //console.log("skipping v:", v, v.result_count.total, v.result_count.successful);
             continue; // skip unfinished
           }
         }

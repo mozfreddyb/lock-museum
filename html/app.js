@@ -19,6 +19,8 @@ function normalizeTestName(longname) {
     return "dv";
   } else if (testname.indexOf("ev certificate") !== -1) {
     return "ev";
+  } else if (testname.indexOf("expired") !== -1) {
+    return "expired";
   }
 }
 function uppercase(string) {
