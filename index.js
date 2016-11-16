@@ -23,15 +23,23 @@ function schedule() {
   // those exec calls are async
   //  but we simply don't care about the results because yolo
   console.log(new Date(), "Requesting new screenshots.");
-  exec('node ./requestNewScreenshots.js');
+  exec('node ./requestNewScreenshots.js', (error, stdout, stderr) => {
+    console.log("requestNewScreenShots stdout:", stdout);
+    console.log("requestNewScreenShots stderr:", stderr);
+    if (error) {
+      console.error(`requestNewScreenShots exec error: ${error}`);
+    }
+  });
+
 
   // we should ask for the URLs to the new screenshots... in two hours.
   setTimeout(function() {
     console.log(new Date(), "Getting latest screenshot URLs.");
     exec('node ./getLatest.js', (error, stdout, stderr) => {
+      console.log("getLatest stdout:", stdout);
+      console.log("getLatest stderr:", stderr);
       if (error) {
-        console.error(`exec error: ${error}`);
-        return;
+        console.error(`getLatest exec error: ${error}`);
       }
   });
   }, TWO_HOURS);
