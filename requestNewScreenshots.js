@@ -37,11 +37,10 @@ for (let id in screenshotTests) {
       for (let v of versionList) {
         if ((v.result_count.successful - v.result_count.total) < -4) {
             continue; // skip unfinished
-          }
         }
         timestamp = (new Date(v.start_date)).getTime(); //
         if (timestamp < latest) {
-          continue
+          continue;
         }
         latest = timestamp;
         var vid = v.version_id; // use this, it should be the latest

@@ -47,7 +47,7 @@ for (let id in screenshotTests) {
         }
         timestamp = (new Date(v.start_date)).getTime(); //
         if (timestamp < latest) {
-          continue
+          continue;
         }
         latest = timestamp;
         var vid = v.version_id; // use this, it should be the latest
@@ -58,7 +58,7 @@ for (let id in screenshotTests) {
         (res) => res.json(),
         (err) => { console.log("Couldn't fetch shotsData: ", err); throw err; }
       ).then(hereTheImages);
-  });
+  }, (err) => { console.log("Couldn't whatever:", err, err.stack()); throw err; });
 }
 
 function hereTheImages(results) {
