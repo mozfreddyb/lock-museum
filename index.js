@@ -12,7 +12,7 @@ var file = new nstatic.Server('html/', {
     "Content-Security-Policy": "default-src 'self'; img-src *;",
     "X-Content-Type-Options": "nosniff",
     "X-XSS-Protection": " 1; mode=block",
-    "Strict-Transport-Security": `max-age=${WEEK_SEC}; includeSubDomains;`,
+//    "Strict-Transport-Security": `max-age=${WEEK_SEC}; includeSubDomains;`,
     "X-Frame-Options": "DENY"
 
   }
