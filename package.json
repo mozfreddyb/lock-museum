@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "node-fetch": "^1.5.2",
+    "node-fetch": "^1.6.3",
     "node-static": "^0.7.7"
   },
   "devDependencies": {},
